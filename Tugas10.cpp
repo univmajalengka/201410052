@@ -1,35 +1,30 @@
-//program menghitung gaji bersih karyawan
 #include <iostream>
-#include <string>
-#include <iomanip>
 using namespace std;
-
-//deklarasi konstanta
-const float persentunjangan = 0.2;
-const float persenpajak = 0.15;
-
 int main(){
-	
-	//deklarasi variable
-	string namakaryawan;
-	float gajibersih, gajipokok, pajak, tunjangan;
-	//input nama karyawan
-	cout<<"Masukan Nama Karyawan : ";
-	getline(cin,namakaryawan);
-	//input gaji pokok
-	cout<<"Masukan Gaji Pokok : Rp . ";
-	cin>>gajipokok;
-	//penghitungan tunjangan
-	tunjangan = persentunjangan * gajipokok;
-	//penghitungan pajak
-	pajak = persenpajak * gajipokok;
-	//penghitungan gaji bersih
-	gajibersih = gajipokok + tunjangan - pajak;
-	//tampilan akhir (nama & jumlah gaji bersih karyawan)
-	cout<<"Gaji Bersih "<<'"'<<namakaryawan<<'"'<<" adalah : ";
-	cout<<fixed;
-	cout<<setprecision(0);
-	cout<<"Rp . "<<gajibersih;
-	
+	int x, dc, h;
+	cout<<"Masukan jumlah belanjaan (menggubakan bilangan bulat) : Rp. ";
+	cin>>x;
+	if (x >= 100000){
+		dc = x * 0.15;
+		h = x - dc;
+		cout<<"Jumlah yang harus dibayar dengan diskon 15% adalah : Rp. "<<h;
+	}	
+	else if(x >= 50000){
+		dc = x * 0.125;
+		h = x - dc;
+		cout<<"Jumlah yang harus dibayar dengan diskon 12.5% adalah : Rp. "<<h;
+	}
+	else if(x >= 25000){
+		dc = x * 0.10;
+		h = x - dc;
+		cout<<"Jumlah yang harus dibayar dengan diskon 10% adalah : Rp. "<<h;
+	}
+		else if(x >= 0 ){
+		cout<<"Jumlah yang harus dibayar adalah : Rp. "<<x;
+	}
+
+	else{
+		cout<<"Masukan nominal jumlah belanjaan di atas 0";
+	}
 	return 0;
 }
